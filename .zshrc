@@ -74,11 +74,15 @@ source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source zsh-history-substring-search.zsh
 
-#B ind keyboard shortcuts to this zsh-history-substring-search functions.
+# User configuration
+
+# Bind keyboard shortcuts to this zsh-history-substring-search functions.
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# User configuration
+# Bind keyboard shortcuts for backwards-kill-word
+bindkey '^H' backward-kill-word
+bindkey '^[[3;5~' kill-word
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
