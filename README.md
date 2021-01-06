@@ -1,2 +1,4 @@
 # oh-my-zsh-config
- oh-my-zsh configuration
+My oh-my-zsh configuration file.
+
+https://github.com/ohmyzsh/ohmyzsh
