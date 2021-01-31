@@ -68,11 +68,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew history node npm kubectl docker docker-compose jira jsontools vscode copydir copyfile osx terraform history-substring-search) 
+plugins=(git brew history node npm kubectl docker docker-compose jira jsontools vscode copydir copyfile osx terraform history-substring-search helm)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source zsh-history-substring-search.zsh
 
 # User configuration
 
@@ -80,6 +79,9 @@ source zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# kube-ps1 config
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PROMPT='$(kube_ps1)'$PROMPT
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -87,14 +89,12 @@ bindkey '^[[B' history-substring-search-down
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR="code"
+export KUBE_EDITOR="code -w"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -104,3 +104,6 @@ bindkey '^[[B' history-substring-search-down
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias kctx="kubectx"
+alias kns="kubens"
+alias watch='watch '
